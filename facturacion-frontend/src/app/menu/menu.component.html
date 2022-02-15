@@ -1,0 +1,39 @@
+<div class="flex flex-wrap bg-neutral text-neutral-content">
+  <div class="flex-1 p-2 uppercase font-bold" [routerLink]="['/home']"  >SISTEMA CRM</div>
+  <button class="btn md:hidden" (click)="desplegar()">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      class="inline-block w-6 h-6 stroke-current"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M4 6h16M4 12h16M4 18h16"
+      ></path>
+    </svg>
+  </button>
+  <div class="" [class]="getDesplegadoClass()">
+    <div class="block dropdown dropdown-hover">
+      <div tabindex="0" class="m-1 btn">Ventas</div>
+      <ul
+        tabindex="0"
+        class="p-2 menu dropdown-content"
+      >
+        <li>
+          <a [routerLink]="['/cliente']" class="btn btn-primary"  (click)="desplegar()">Clientes</a>
+        </li>
+        <li>
+          <a class="btn btn-primary" >Tablero</a>
+        </li>
+        <li>
+          <a class="btn btn-primary" >Facturas</a>
+        </li>
+      </ul>
+    </div>
+    <div class="block btn p-4">Reportes</div>
+    <div class="block btn p-4">Configuración</div>
+  </div>
+</div>
