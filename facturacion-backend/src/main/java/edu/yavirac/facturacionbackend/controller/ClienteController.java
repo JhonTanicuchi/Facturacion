@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.yavirac.facturacionbackend.entity.Cliente;
 import edu.yavirac.facturacionbackend.service.ClienteService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @CrossOrigin({"http://localhost:4200"})
@@ -59,5 +61,11 @@ public class ClienteController {
     {
         return clienteService.findAll();
     }
+
+    @GetMapping("/findByName/{termino}")
+    public List<Cliente> findByName(@PathVariable String termino) {
+        return clienteService.findByName("%"+termino+"%");
+    }
+    
     
 }

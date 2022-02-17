@@ -35,5 +35,10 @@ public class ClienteService {
     {
         return clienteRepository.findAll();
     }
+
+    public List<Cliente> findByName(String termino)
+    {
+        return clienteRepository.findByNombreLikeIgnoreCase(termino);
+    }
     
 }
