@@ -42,10 +42,10 @@
             {{linea.nombreProducto}}
           </td>
           <td>
-            <input class="input input-primary input-sm md:w-24" type="text" name="" id="" [value]="linea.cantidad">
+            <input class="input input-primary input-sm md:w-24" type="text" name="" id="" [(ngModel)]="linea.cantidad">
           </td>
           <td>
-            <input class="input input-primary input-sm md:w-24" type="text" name="" id="" [value]="linea.precio">
+            <input class="input input-primary input-sm md:w-24" type="text" name="" id="" [(ngModel)]="linea.precio">
           </td>
           <td><p>{{linea.cantidad*linea.precio}}</p></td>
         </tr>

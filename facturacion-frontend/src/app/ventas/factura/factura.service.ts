@@ -23,4 +23,13 @@ export class FacturaService {
   {
     return this.http.post<Factura>(this.url+"/save", factura, this.httpOptions);
   }
+
+  getPdf(id: number): Observable<Blob>
+  {
+    let headers = new HttpHeaders();
+    headers = headers.set("Accept","application/pdf");
+    return this.http.get<Blob>(this.url+"/facturaPDF/"+id,{ headers: headers, responseType: 'blob' as 'json' })
+
+  }
+
 }

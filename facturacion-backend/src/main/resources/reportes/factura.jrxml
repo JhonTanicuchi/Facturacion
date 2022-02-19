@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="factura" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="1bd7e6ce-d10e-408d-976a-dc1c6ec44a34">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Etiquetas" hTextAlign="Left" vTextAlign="Middle" fontSize="12" isBold="true"/>
+	<parameter name="nro" class="java.lang.String"/>
+	<parameter name="fecha" class="java.sql.Timestamp"/>
+	<parameter name="nombreCliente" class="java.lang.String"/>
+	<parameter name="identificacion" class="java.lang.String"/>
+	<parameter name="facturaDetalle" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="259" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="550" height="30" forecolor="#FFFFFF" backcolor="#2E8EE8" uuid="aa9dd8a0-3626-4887-9883-6980c003fa6f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FACTURA]]></text>
+			</staticText>
+			<rectangle radius="13">
+				<reportElement x="20" y="130" width="240" height="102" backcolor="#639FF2" uuid="10cbe77d-2efd-4e8c-9a83-72e7d18fe549"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle radius="13">
+				<reportElement x="270" y="128" width="260" height="102" uuid="8a9a3480-577e-4b3d-aed0-8a6164fd9599"/>
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement style="Etiquetas" x="30" y="146" width="120" height="20" forecolor="#FFFFFF" uuid="693d8079-91c4-456d-9c95-c207fa3c948e">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[CLIENTE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Etiquetas" x="30" y="185" width="120" height="20" forecolor="#FFFFFF" uuid="81c8cb73-b4cf-416b-ae52-e62f1fc3eddd">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[IDENTIFICACIÓN:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Etiquetas" x="280" y="146" width="130" height="20" uuid="0ec8dc0b-5bb7-4ca4-a2ac-e7d21f5b3b01">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[NRO DE FACTURA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Etiquetas" x="280" y="185" width="130" height="20" uuid="53aabca8-ff47-4ba2-8a0b-850457fb0020">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<text><![CDATA[FECHA:]]></text>
+			</staticText>
+			<textField>
+				<reportElement style="Etiquetas" x="410" y="146" width="120" height="20" uuid="6c98e6bd-f965-4689-a537-5397a37fab96">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{nro}]]></textFieldExpression>
+			</textField>
+			<textField pattern="M/d/yyyy">
+				<reportElement style="Etiquetas" x="410" y="185" width="120" height="20" uuid="5deb9366-c43f-424d-981f-7d54b3bd44c1">
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$P{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Etiquetas" x="151" y="146" width="100" height="38" forecolor="#FFFFFF" uuid="305ffc17-4de9-4151-b35a-73a58ccfcc60"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{nombreCliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement style="Etiquetas" x="151" y="187" width="100" height="42" forecolor="#FFFFFF" uuid="26531be2-a22a-47a0-93a6-cfd45fcd5c0f"/>
+				<textElement verticalAlignment="Top"/>
+				<textFieldExpression><![CDATA[$P{identificacion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="30" width="550" height="30" uuid="0f849c22-0167-4587-bc89-4e205ebbd02b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20"/>
+				</textElement>
+				<text><![CDATA[EMPRESA: DEMO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="60" width="550" height="30" uuid="30161a2d-d62c-4aa1-94fb-22a0ce290394"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[RUC: 175451641]]></text>
+			</staticText>
+			<image onErrorType="Icon">
+				<reportElement x="0" y="30" width="160" height="90" uuid="f422b716-23b8-45ab-b042-ace616958b75"/>
+				<imageExpression><![CDATA["classpath:reportes/logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<detail>
+		<band height="30" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="530" height="30" uuid="e564a4d5-a09b-4e1e-a9d3-89a8c34fd70a">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+				</reportElement>
+				<dataSourceExpression><![CDATA[$P{facturaDetalle}]]></dataSourceExpression>
+				<subreportExpression><![CDATA["classpath:reportes/detalle.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+</jasperReport>
