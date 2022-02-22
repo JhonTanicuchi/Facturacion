@@ -1,0 +1,22 @@
+<div class="container">
+
+  <div class="border-2 max-w-lg rounded-lg mx-auto grid grid-cols-1 md:grid-flow-col gap-4 content-center">
+
+    <div *ngFor="let categoria of categoriasConProductos">
+      <div class="shadow-md m-3 ">
+        <p class="bg-neutral text-neutral-content text-center">{{categoria.nombre}}</p>
+        <div [sortablejs]="categoria.productos"
+        [sortablejsOptions]="options" data-id="{{categoria.categoriaId}}">
+          <div *ngFor="let producto of categoria.productos"
+          data-id="{{producto.productoId}}"
+          >
+            {{producto.nombre}}
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+

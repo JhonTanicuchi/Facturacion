@@ -7,14 +7,12 @@ import org.springframework.data.relational.core.mapping.Table;
 import lombok.Data;
 
 @Data
-@Table("productos")
-public class Producto {
-    
+@Table("categorias")
+public class Categoria {
+
     @Id
-    @Column("producto_id")
-    private long productoId;
-    private String nombre;
-    private Double precio;
     @Column("categoria_id")
     private long categoriaId;
+    private String nombre;
+    
 }

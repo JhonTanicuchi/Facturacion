@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Producto } from './producto';
 import { environment } from 'src/environments/environment';
 import { Observable } from 'rxjs';
+import { CategoriasConProductos } from '../ventas/tablero/categoriasConProductos';
 
 
 @Injectable({
@@ -23,6 +24,13 @@ export class ProductoService {
   findByName(termino: string): Observable<Producto[]>
   {
     return this.http.get<Producto[]>(this.url+"/findByName/"+termino, this.httpOptions);
+  }
+
+  actualizarCategoriaProducto(productoId: number, categoriaId: number): Observable<Producto>
+  {
+    console.log("Solicitud al backend"+productoId,", "+categoriaId);
+    let producto: Producto = new Producto(productoId, "", 0, categoriaId);
+    return this.http.put<Producto>(this.url+"/actualizarCategoria", producto, this.httpOptions);
   }
 
 }

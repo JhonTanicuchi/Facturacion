@@ -10,4 +10,8 @@ import edu.yavirac.facturacionbackend.entity.Producto;
 public interface ProductoRepository  extends CrudRepository <Producto, Long>{
     
     List<Producto> findByNombreLikeIgnoreCase(String terminio);
+
+    List<Producto> findAll();
+
+    List<Producto> findByCategoriaId(long categoriaId);
 }

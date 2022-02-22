@@ -12,6 +12,8 @@ import { HomeComponent } from './home/home.component';
 import { FacturaComponent } from './ventas/factura/factura.component';
 import { ClienteBusquedaComponent } from './cliente/cliente-busqueda/cliente-busqueda.component';
 import { ProductoBusquedaComponent } from './producto/producto-busqueda/producto-busqueda.component';
+import { SortablejsModule } from 'ngx-sortablejs';
+import { TableroComponent } from './ventas/tablero/tablero.component';
 
 @NgModule({
   declarations: [
@@ -21,13 +23,15 @@ import { ProductoBusquedaComponent } from './producto/producto-busqueda/producto
     HomeComponent,
     FacturaComponent,
     ClienteBusquedaComponent,
-    ProductoBusquedaComponent
+    ProductoBusquedaComponent,
+    TableroComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    SortablejsModule.forRoot({ animation: 150 })
   ],
   providers: [],
   bootstrap: [AppComponent]

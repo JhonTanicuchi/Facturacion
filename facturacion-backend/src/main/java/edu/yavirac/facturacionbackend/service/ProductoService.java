@@ -20,4 +20,21 @@ public class ProductoService {
     {
         return productoRepository.findByNombreLikeIgnoreCase(termino);
     }
+
+    public List<Producto> findAll()
+    {
+        return productoRepository.findAll();
+    }
+
+    public List<Producto> findByCategoriaId(long id)
+    {
+        return productoRepository.findByCategoriaId(id);
+    }
+
+    public Producto actualizarCategoria(Producto producto)
+    {
+        Producto productoEnBaseDeDatos = productoRepository.findById(producto.getProductoId()).get();
+        productoEnBaseDeDatos.setCategoriaId(producto.getCategoriaId());
+        return productoRepository.save(productoEnBaseDeDatos);
+    }
 }
