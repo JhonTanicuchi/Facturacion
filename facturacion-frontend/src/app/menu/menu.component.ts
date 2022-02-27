@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -8,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class MenuComponent implements OnInit {
 
   desplegado: boolean = false;
-  constructor() { }
+  constructor(
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
   }
@@ -29,6 +32,20 @@ export class MenuComponent implements OnInit {
       return "w-full flex flex-col md:flex-row md:w-auto";
     else
       return "w-full hidden md:flex md:w-auto";
+  }
+
+  enSesion():boolean
+  {
+    if (sessionStorage.getItem("username")!=null)
+      return true;
+
+    return false;
+  }
+
+  cerrarSesion():void
+  {
+    sessionStorage.clear();
+    this.router.navigate(['/home']);
   }
 
 }

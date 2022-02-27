@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ClienteComponent } from './cliente/cliente.component';
 import { MenuComponent } from './menu/menu.component';
 import { HomeComponent } from './home/home.component';
@@ -14,6 +14,10 @@ import { ClienteBusquedaComponent } from './cliente/cliente-busqueda/cliente-bus
 import { ProductoBusquedaComponent } from './producto/producto-busqueda/producto-busqueda.component';
 import { SortablejsModule } from 'ngx-sortablejs';
 import { TableroComponent } from './ventas/tablero/tablero.component';
+import { LoginComponent } from './login/login.component';
+import { TokenInterceptor } from './login/token.interceptor';
+import { RespuestaBackendInterceptor } from './login/respuesta-backend.interceptor';
+import { AlertaComponent } from './login/alerta/alerta/alerta.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,9 @@ import { TableroComponent } from './ventas/tablero/tablero.component';
     FacturaComponent,
     ClienteBusquedaComponent,
     ProductoBusquedaComponent,
-    TableroComponent
+    TableroComponent,
+    LoginComponent,
+    AlertaComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +39,18 @@ import { TableroComponent } from './ventas/tablero/tablero.component';
     HttpClientModule,
     SortablejsModule.forRoot({ animation: 150 })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: RespuestaBackendInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
